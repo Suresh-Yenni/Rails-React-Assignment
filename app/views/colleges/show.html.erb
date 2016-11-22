@@ -1,0 +1,60 @@
+<style>
+ .block{
+     background-color: orange;
+     box-shadow: 0px 0px 20px;
+     width:700px;
+     height: 550px;
+     text-align: center;
+     margin-left:22%;
+ }
+ .links{
+     color:#f1f1f1;
+     font-size:40px;
+     font-weight:bold;
+     text-decoration: none;
+ }
+ table {
+    border-collapse: collapse;
+    text-align: center;
+    margin-left:5%;
+}
+table, td, th {
+    border: 2px solid #0099ff;
+    padding: 4px;
+}
+.jump{
+    color:#f1f1f1;
+    font-weight:bold;
+    text-decoration: none;
+}
+.jump:hover
+{
+    font-size:120%;
+}
+</style>
+<h1 align="center" style="color: #0099ff;">Showing Students of College</h1>
+<body bgcolor="#f1f1f1">
+  <div class="block">
+     <% if @student != [] %><br><br>
+       <table border="1">
+            <tr>
+               <th>Student Reg.ID</th>
+               <th>Department Name</th>
+               <th>Year</th>
+            </tr>
+            <% @student.each do |item| %>
+              <tr>
+                <td><%= item.regid %></td>
+                <td><%= item.dept %></td>
+                <td><%= item.year %></td>
+              </tr>
+            <% end %>
+      </table>
+    <% else %>
+      <br><br><p>No students available</p>
+    <% end %>
+    <p>
+      <%= link_to "Home", "/home", {:class=>"links"} %>
+    </p>
+  </div>
+</body>

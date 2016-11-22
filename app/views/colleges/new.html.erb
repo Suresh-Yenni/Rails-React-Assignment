@@ -1,0 +1,42 @@
+<style>
+  .block{
+     background-color: orange;
+     box-shadow: 0px 0px 20px;
+     width:700px;
+     height: 550px;
+     text-align: center;
+     margin-left:22%;
+ }
+ .links{
+     color:#f1f1f1;
+     font-size:40px;
+     font-weight:bold;
+     text-decoration: none;
+ }
+ .filling{
+     padding:3px;
+     width:250px;
+     height:25px;
+     font-size:25px;
+ }
+ .press{
+     padding:3px;
+     width:250px;
+     font-size:25px;
+     color:#0099ff;
+ }
+</style>
+<h1 align="center" style="color: #0099ff;">Adding New College</h1>
+<body bgcolor="#f1f1f1" >
+  <div class="block">
+      <%= form_for :college, url: colleges_path do |f|  %>
+         <br><br>
+         <p>
+           <%= f.text_field :name, placeholder: "College Name", class: "filling", :required => true %><br><br>
+           <%= f.number_field :establish, placeholder: "Established Year", class: "filling", :required => true %><br><br>
+           <%= f.submit "Add College", class: "press"%>
+         </p>
+      <% end %>
+      <p><%= link_to "Home", "/home", {:class=>"links"} %></p>
+  </div>
+</body>

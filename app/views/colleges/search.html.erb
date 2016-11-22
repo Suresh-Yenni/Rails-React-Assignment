@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <style>
+        .block{
+           background-color: orange;
+           box-shadow: 0px 0px 20px;
+           width:750px;
+           height: 550px;
+           text-align: center;
+           margin-left:22%;
+        }
+       .links{
+           color:#f1f1f1;
+           font-size:40px;
+           font-weight:bold;
+           text-decoration: none;
+       }
+       table {
+           border-collapse: collapse;
+           text-align: center;
+           margin-left:5%;
+      }
+      table, td, th {
+           border: 2px solid #0099ff;
+           padding: 4px;
+      }
+      .jump{
+           color:#f1f1f1;
+           font-weight:bold;
+           text-decoration: none;
+      }
+      .jump:hover
+      {
+           font-size:120%;
+      }
+    </style>
+    <h1 align="center" style="color: #0099ff;">Matched Available Colleges</h1>
+  </head>
+  <body bgcolor="#f1f1f1">
+    <div class="block">
+      <% if @college != [] %><br><br>
+        <table border="1">
+          <tr>
+            <th>College Name</th>
+            <th>Established Year</th>
+            <th>Edit Link</th>
+            <th>Delete Link</th>
+            <th>Students Link</th>
+          </tr>
+          <% @college.each do |item| %>
+           <tr>
+             <td><%= item.name %></td>
+             <td><%= item.establish %></td>
+             <td><%= link_to 'Edit College', edit_college_path(item.id), {:class=>"jump"} %></td>
+             <td><%= link_to 'Delete College', college_path(item.id), method: "delete", class: "jump"%></td>
+             <td><%= link_to 'College Students', college_path(item.id), {:class=>"jump"} %></td>
+           </tr>
+          <% end %>
+        </table>
+      <% else %>
+          <br><br><p>No Matched College available</p>
+      <% end %>
+      <p>
+        <%= link_to "Home", "/home" ,{:class=>"links"}%>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style>
+        .block{
+           background-color: orange;
+           box-shadow: 0px 0px 20px;
+           width:800px;
+           height: 550px;
+           text-align: center;
+           margin-left:22%;
+        }
+       .links{
+           color:#f1f1f1;
+           font-size:40px;
+           font-weight:bold;
+           text-decoration: none;
+       }
+       table {
+           border-collapse: collapse;
+           text-align: center;
+           margin-left:5%;
+      }
+      table, td, th {
+           border: 2px solid #0099ff;
+           padding: 4px;
+      }
+      .jump{
+           color:#f1f1f1;
+           font-weight:bold;
+           text-decoration: none;
+      }
+      .jump:hover
+      {
+           font-size:120%;
+      }
+    </style>
+    <h1 align="center" style="color: #0099ff;">All Available students</h1>
+  </head>
+  <body bgcolor="#f1f1f1">
+    <div class="block">
+      <% if @student != [] %><br><br>
+        <table border="1">
+          <tr>
+            <th>Reg.ID</th>
+            <th>Dept Name</th>
+            <th>Maths</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Year</th>
+            <th>College Name</th>
+            <th>Edit Link</th>
+            <th>Delete Link</th>
+          </tr>
+          <% @details.each do |stu, clg| %>
+           <tr>
+             <td><%= stu.regid %></td>
+             <td><%= stu.dept %></td>
+             <td><%= stu.maths %></td>
+             <td><%= stu.physics %></td>
+             <td><%= stu.chemistry %></td>
+             <td><%= stu.year %></td>
+             <th><%= clg %></td>
+             <td><%= link_to 'Edit Student', edit_student_path(stu.id), {:class=>"jump"} %></td>
+             <td><%= link_to 'Delete Student', student_path(stu.id), method: "delete", class: "jump"%></td>
+           </tr>
+          <% end %>
+        </table>
+      <% else %>
+          <br><br><p>No Students available</p>
+      <% end %>
+      <p>
+        <%= link_to "Home", "/home" ,{:class=>"links"}%>
+      </p>
+    </div>
+  </body>
+</html>
