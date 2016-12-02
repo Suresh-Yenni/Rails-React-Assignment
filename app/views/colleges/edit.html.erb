@@ -30,12 +30,12 @@
 <body bgcolor="#f1f1f1" >
   <div class="block">
       <%= form_for :college, url: college_path(@college), method: "put" do |f|  %>
-         <br><br>
-         <p>
-           <%= f.text_field :name, placeholder: "College Name", class: "filling", :required => true %><br><br>
-           <%= f.number_field :establish, placeholder: "Established Year", class: "filling", :required => true %><br><br>
-           <%= f.submit "Submit", class: "press"%>
-         </p>
+           <br><br>
+           <p>
+             <%= f.text_field :name, placeholder: "College Name", class: "filling", :required => true %><br><br>
+             <%= f.number_field :establish, placeholder: "Established Year", class: "filling", :required => true%><br><br>
+             <%= f.submit "Submit", class: "press"%>
+           </p>
       <% end %>
       <p><%= link_to "Home", "/home", {:class=>"links"} %></p>
   </div>

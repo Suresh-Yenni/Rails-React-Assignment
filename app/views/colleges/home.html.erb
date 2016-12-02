@@ -58,20 +58,11 @@
         </div>
         <div class="mid_div" ><br><br><br>
           <%= form_for :college, url: "/home/search" do |f| %>
-            <%= f.text_field :name, placeholder: "College Search", class:"filling", :required => true %> |
+            <%= f.text_field :name, placeholder: "College Search", class:"filling", :required => true %> <br><br>
             <%= f.submit "Search", class: "press" %>
           <% end %>
-          <p style="color:orange;">=======================================</p>
-          <h3 align="center" style="color: orange; font-size:25px;">Filterations on Student</h3>
-          <%= form_tag("/home/filter", method: "post") do %>
-            GROUP BY <%= text_field_tag "group", nil, placeholder: "regid/dept/year", class:"filling", :required => true %><br><br>
-            SORT BY <%= text_field_tag "sort", nil, placeholder: "maths/physics/chemistry", class:"filling", :required => true %><br><br>
-            DISPLAY <%= text_field_tag "display", nil, placeholder: "maths,physics,chemistry", class:"filling", :required => true %><br><br>
-            <%= number_field_tag "year1", nil, placeholder: "Year1", class:"filling"%><br>
-            COMPARISON <br><%= number_field_tag "year2", nil, placeholder: "Year2", class:"filling"%><br><br>
-            TOTAL <%= text_field_tag "total", nil, placeholder: "true/false", class:"filling", :required => true %><br><br>
-            <%= submit_tag "Search", class: "press" %>
-          <% end %>
+           <br><br><br>
+          <%= link_to "Query On Student", "/home/query/", {:class=>"links"} %><br><br>
         </div>
         <div class="right_div"><br><br><br><br><br><br><br>
           <%= link_to "Add Student", new_student_path, {:class=>"links"} %><br><br>

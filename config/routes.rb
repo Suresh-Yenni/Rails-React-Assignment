@@ -2,6 +2,7 @@ CollegesStudents::Application.routes.draw do
   match "/home" => "colleges#home"
   match "/home/search" => "colleges#search"
   match "/home/filter" => "students#filter"
+  match "/home/query" => "students#query"
   resources :students
   resources :colleges
 
